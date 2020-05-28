@@ -6,7 +6,7 @@ var started = false;
 var level = 0;
 
 
-$(document).keypress(function() {
+$(document).on("keypress touchstart", function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
@@ -43,7 +43,7 @@ function checkAnswer(currentLevel) {
 
   }
 
-}
+};
 
 
 function nextSequence() {
@@ -57,7 +57,7 @@ function nextSequence() {
   $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
   playSound(randomChosenColour);
 
-}
+};
 
 
 
@@ -65,19 +65,19 @@ function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
 
-}
+};
 
 function animatePress(currentColor) {
   $("#" + currentColor).addClass("pressed");
   setTimeout(function() {
     $("#" + currentColor).removeClass("pressed");
   }, 100);
-}
+};
 
 
 function startOver() {
   level = 0;
-  gamepattern = [];
+  gamePattern = [];
   started = false;
 
-}
+};
